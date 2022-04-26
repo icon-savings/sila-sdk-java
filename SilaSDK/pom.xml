@@ -38,6 +38,7 @@
         <sonar.projectName>sila-sdk-java</sonar.projectName>
         <sonar.coverage.jacoco.xmlReportPaths>**/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <sonar.junit.reportPaths>**/surefire-reports</sonar.junit.reportPaths>
+        <runSuite>**/TestSuite.class</runSuite>
     </properties>
     <dependencies>
         <dependency>
@@ -139,6 +140,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M3</version>
+                    <configuration>
+                        <includes>
+                            <include>${runSuite}</include>
+                        </includes>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.surefire</groupId>

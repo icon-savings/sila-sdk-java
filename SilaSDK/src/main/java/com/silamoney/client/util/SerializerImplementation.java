@@ -10,7 +10,7 @@ public class SerializerImplementation implements JsonSerializer<String> {
 
     @Override
     public JsonElement serialize(String src, Type typeOfSrc, JsonSerializationContext context) {
-        if (src == null || src.isEmpty())
+        if (src == null || (src.isEmpty() && !typeOfSrc.equals(String.class)))
             return null;
 
         return new JsonPrimitive(src);
