@@ -1503,19 +1503,6 @@ public class SilaApi {
         return ResponseUtil.prepareFileResponse(response);
     }
 
-    /**
-     * Update an ID document for a registered entity.
-     *
-     * @param userHandle The user handle
-     * @param userPrivateKey The user's private key
-     * @param uuid The document UUID
-     * @param docType The document type
-     * @param docId The document ID
-     * @param docState The document state
-     * @return ApiResponse
-     * @throws IOException
-     * @throws InterruptedException
-     */
     public ApiResponse updateIdDocument(String userHandle, String userPrivateKey, String uuid, String docType, String docId, String docState) throws IOException, InterruptedException {
         UpdateIdDocumentMsg body = new UpdateIdDocumentMsg(userHandle, this.configuration.getAuthHandle(), uuid, docType, docId, docState);
         String path = Endpoints.UPDATE_ID_DOCUMENT.getUri();
