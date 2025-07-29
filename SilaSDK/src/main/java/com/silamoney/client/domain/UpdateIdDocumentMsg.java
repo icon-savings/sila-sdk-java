@@ -24,33 +24,8 @@ public class UpdateIdDocumentMsg {
     @SerializedName("doc_state")
     private final String docState;
 
-    /**
-     * Constructor for UpdateIdDocumentMsg.
-     *
-     * @param userHandle The user handle
-     * @param appHandle The app handle
-     * @param uuid The document UUID
-     * @param docType The document type
-     * @param docId The document ID
-     * @param docState The document state
-     */
     public UpdateIdDocumentMsg(String userHandle, String appHandle, String uuid, String docType, String docId, String docState) {
-        this(userHandle, appHandle, uuid, docType, docId, docState, null);
-    }
-
-    /**
-     * Constructor for UpdateIdDocumentMsg.
-     *
-     * @param userHandle The user handle
-     * @param appHandle The app handle
-     * @param uuid The document UUID
-     * @param docType The document type
-     * @param docId The document ID
-     * @param docState The document state
-     * @param reference The reference (optional)
-     */
-    public UpdateIdDocumentMsg(String userHandle, String appHandle, String uuid, String docType, String docId, String docState, String reference) {
-        this.header = new HeaderMsg(userHandle, appHandle, reference);
+        this.header = new HeaderMsg(userHandle, appHandle, null);
         this.uuid = uuid;
         this.docType = docType;
         this.docId = docId;
