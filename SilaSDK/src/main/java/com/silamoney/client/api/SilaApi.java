@@ -1503,6 +1503,13 @@ public class SilaApi {
         return ResponseUtil.prepareFileResponse(response);
     }
 
+    public ApiResponse updateIdDocument(String userHandle, String userPrivateKey, String uuid, String docType, String docId, String docState) throws IOException, InterruptedException {
+        UpdateIdDocumentMsg body = new UpdateIdDocumentMsg(userHandle, this.configuration.getAuthHandle(), uuid, docType, docId, docState);
+        String path = Endpoints.UPDATE_ID_DOCUMENT.getUri();
+        HttpResponse<?> response = getHttpResponse(path, body, userPrivateKey, this.configuration.getPrivateKey(), null);
+        return ResponseUtil.prepareResponse(response, Message.ValueEnum.UPDATE_ID_DOCUMENT_MSG.getValue());
+    }
+
     /**
      * Add a new email to a registered entity.
      *
