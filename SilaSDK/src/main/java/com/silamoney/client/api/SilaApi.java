@@ -1588,6 +1588,21 @@ public class SilaApi {
     }
 
     /**
+     * Add an id document to a registered entity.
+     *
+     * @param user
+     * @param idDocument
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public ApiResponse addIdDocument(UserHandleMessage user, IdentityDocument idDocument) throws IOException, InterruptedException {
+        IdDocumentMsg body = new IdDocumentMsg(this.configuration.getAuthHandle(), user, idDocument);
+        return registrationData(Endpoints.ADD_REGISTRATION_DATA, RegistrationDataEnum.ID_DOCUMENT,
+                user.getUserPrivateKey(), body, IdDocumentResponse.class);
+    }
+
+    /**
      * Update an existing email of a registered entity.
      *
      * @param user
