@@ -104,6 +104,8 @@ public class Message {
          * String value for get verifications.
          */
         GET_VERIFICATIONS_MSG("get_verifications"),
+
+        GET_VERIFICATION_MSG("get_verification"),
         /**
          * String value for ResumeVerification.
          */
@@ -247,7 +249,8 @@ public class Message {
         /**
          * String value for UpdateIdDocumentMsg.
          */
-        UPDATE_ID_DOCUMENT_MSG("update_id_document_msg");
+        UPDATE_ID_DOCUMENT_MSG("update_id_document_msg"),
+        ADD_ID_DOCUMENT_MSG("add_id_document_msg"),;
 
 
         private final String value;

@@ -261,6 +261,13 @@ public class SilaApi {
         return ResponseUtil.prepareResponse(response, Message.ValueEnum.GET_VERIFICATIONS_MSG.getValue());
     }
 
+    public ApiResponse getVerification(String userHandle, String userPrivateKey, String verificationId) throws IOException, InterruptedException {
+        String path = Endpoints.GET_VERIFICATIONS.getUri() + "/" + verificationId;
+        GetVerificationsMsg body = new GetVerificationsMsg(userHandle, this.configuration.getAuthHandle(), null);
+        HttpResponse<?> response = getHttpResponse(path, body, userPrivateKey, this.configuration.getPrivateKey(), null);
+        return ResponseUtil.prepareResponse(response, Message.ValueEnum.GET_VERIFICATION_MSG.getValue());
+    }
+
     public ApiResponse resumeVerification(
         String userHandle,
         String userPrivateKey,
@@ -1504,10 +1511,17 @@ public class SilaApi {
     }
 
     public ApiResponse updateIdDocument(String userHandle, String userPrivateKey, String uuid, String docType, String docId, String docState) throws IOException, InterruptedException {
-        UpdateIdDocumentMsg body = new UpdateIdDocumentMsg(userHandle, this.configuration.getAuthHandle(), uuid, docType, docId, docState);
+        UpdateIdDocumentMsg body = new UpdateIdDocumentMsg(userHandle, this.configuration.getAuthHandle(), uuid, docType, docId, docState, null);
         String path = Endpoints.UPDATE_ID_DOCUMENT.getUri();
         HttpResponse<?> response = getHttpResponse(path, body, userPrivateKey, this.configuration.getPrivateKey(), null);
         return ResponseUtil.prepareResponse(response, Message.ValueEnum.UPDATE_ID_DOCUMENT_MSG.getValue());
+    }
+
+    public ApiResponse addIdDocument(String userHandle, String userPrivateKey, String uuid, String docType, String docId, String docCountry, String docState) throws IOException, InterruptedException {
+        AddIdDocumentMsg body = new AddIdDocumentMsg(userHandle, this.configuration.getAuthHandle(), uuid, docType, docId, docCountry, docState, null);
+        String path = Endpoints.ADD_ID_DOCUMENT.getUri();
+        HttpResponse<?> response = getHttpResponse(path, body, userPrivateKey, this.configuration.getPrivateKey(), null);
+        return ResponseUtil.prepareResponse(response, Message.ValueEnum.ADD_ID_DOCUMENT_MSG.getValue());
     }
 
     /**
