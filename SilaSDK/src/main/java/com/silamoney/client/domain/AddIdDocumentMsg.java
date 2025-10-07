@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Object sent in the Update ID Document method
  *
  */
-public class UpdateIdDocumentMsg {
+public class AddIdDocumentMsg {
   @SerializedName("header")
   private final Header header;
 
@@ -22,18 +22,24 @@ public class UpdateIdDocumentMsg {
   @SerializedName("doc_state")
   private final String docState;
 
-  public UpdateIdDocumentMsg(String userHandle,
-                             String appHandle,
-                             String uuid,
-                             String docType,
-                             String docId,
-                             String docState,
-                             String reference) {
+  @SerializedName("doc_country")
+  private final String docCountry;
+
+  public AddIdDocumentMsg(String userHandle,
+                          String appHandle,
+                          String uuid,
+                          String docType,
+                          String docId,
+                          String docState,
+                          String docCountry,
+                          String reference) {
     this.header = new Header(userHandle, appHandle);
     this.header.setReference(reference);
     this.uuid = uuid;
     this.docType = docType;
     this.docId = docId;
     this.docState = docState;
+    this.docCountry = docCountry;
   }
-} 
+
+}

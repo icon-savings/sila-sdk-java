@@ -24,7 +24,8 @@ public enum Endpoints {
     UPDATE_ACCOUNT("/update_account"),CHECK_PARTNER_KYC("/check_partner_kyc"),APPROVE_WIRE("/approve_wire"),MOCK_WIRE_OUT_FILE("/mock_wire_out_file"),
     GET_WALLET_STATEMENT_DATA("/get_wallet_statement_data"), GET_STATEMENTS_DATA("/get_statements_data"), GET_STATEMENT_TRANSACTIONS("/get_statement_transactions"),STATEMENTS("/statements"),
     REFUND_DEBIT_CARD("/refund_debit_card"),CREATE_CKO_TESTING_TOKEN("/create_cko_testing_token"),GET_VERIFICATIONS("/get_verifications"),RESUME_VERIFICATION("/resume_verification"),
-    UPDATE_ID_DOCUMENT("/update/id_document");
+    UPDATE_ID_DOCUMENT("/update/id_document"),
+    ADD_ID_DOCUMENT("/add/id_document");
 
     private String uri;
 

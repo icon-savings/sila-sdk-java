@@ -255,7 +255,11 @@ public class ResponseUtil {
                     GetVerificationsResponse getVerificationsResponse = (GetVerificationsResponse) Serialization
                             .deserialize(bodyString, GetVerificationsResponse.class);
 
-                    return new ApiResponse(statusCode, response.headers().map(), getVerificationsResponse, success);
+                case "get_verification":
+                    GetVerificationResponse getVerificationResponse = (GetVerificationResponse) Serialization
+                            .deserialize(bodyString, GetVerificationResponse.class);
+
+                    return new ApiResponse(statusCode, response.headers().map(), getVerificationResponse, success);
                 case "resume_verification":
                     ResumeVerificationResponse resumeVerificationResponse = (ResumeVerificationResponse) Serialization
                             .deserialize(bodyString, ResumeVerificationResponse.class);
@@ -424,6 +428,10 @@ public class ResponseUtil {
                     CreateCkoTestingTokenResponse createCkoTestingTokenResponse = (CreateCkoTestingTokenResponse) Serialization
                             .deserialize(bodyString, CreateCkoTestingTokenResponse.class);
                     return new ApiResponse(statusCode, response.headers().map(), createCkoTestingTokenResponse, success);
+                case "add_id_document_msg":
+                    IdDocumentResponse addIdDocumentResponse = (IdDocumentResponse) Serialization
+                            .deserialize(bodyString, IdDocumentResponse.class);
+                    return new ApiResponse(statusCode, response.headers().map(), addIdDocumentResponse, success);
                 default:
                     BaseResponse baseResponse = (BaseResponse) Serialization.deserialize(bodyString,
                             BaseResponse.class);
