@@ -254,6 +254,7 @@ public class ResponseUtil {
                 case "get_verifications":
                     GetVerificationsResponse getVerificationsResponse = (GetVerificationsResponse) Serialization
                             .deserialize(bodyString, GetVerificationsResponse.class);
+                    return new ApiResponse(statusCode, response.headers().map(), getVerificationsResponse, success);
 
                 case "get_verification":
                     GetVerificationResponse getVerificationResponse = (GetVerificationResponse) Serialization
